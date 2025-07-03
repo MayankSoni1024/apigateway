@@ -1,0 +1,24 @@
+server:
+  port: 8083
+eureka:
+  instance:
+    hostname: localhost
+spring:
+  application:
+    name: ApiGateway
+  cloud:
+    gateway:
+      routes:
+      - id: productservice
+        uri: https://xolom88721.pythonanywhere.com/product/
+        predicates:
+        - Path=/product/**    
+      
+      - id: addressservice
+        uri: https://addserv.onrender.com/address
+        predicates:
+        - Path=/address/**
+      - id: mservice
+        uri: https://ms1-m10z.onrender.com/show
+        predicates:
+        - Path=/show/**
